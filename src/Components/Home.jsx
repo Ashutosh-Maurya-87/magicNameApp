@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 
 const Home = () => {
-  const [name, setName] = useState({ fname: "Ashutosh ", lname: "Maurya" });
-
+  const [name, setName] = useState({
+    fname: "Ashutosh ",
+    lname: "Maurya",
+  });
+  const [show, setShow] = useState([]);
   const getName = () => {
     setName({
-      fname: "Ashu",
+      fname: "Ashu ",
       lname: "Maurya",
     });
-    console.log(name);
-    console.log("you find name ashu");
+  };
+  const getState = () => {
+    setShow({
+      dist: "Ayodhya",
+      state: "UP",
+    });
+    console.log("show", show);
+    console.log("name", name);
   };
 
   return (
@@ -17,8 +26,14 @@ const Home = () => {
       <h3>
         {name.fname}
         {name.lname}
+        {<br />}
+        {show.dist}
+        {show.state}
       </h3>
-      <button onClick={getName}>Get Name</button>
+      <button onClick={getName}>{name ? "Get Other Name" : "Get Name"}</button>
+      <br />
+      <br />
+      <button onClick={getState}>Get State</button>
     </>
   );
 };
